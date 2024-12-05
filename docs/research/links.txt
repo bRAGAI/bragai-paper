@@ -1,0 +1,12 @@
+Fine-tuning vs Context-Injection (RAG)
+https://community.openai.com/t/fine-tuning-vs-context-injection-rag/550286
+
+Fine-tuning - Fine-tune models for better results and efficiency.
+https://platform.openai.com/docs/guides/fine-tuning
+
+Fine-Tuning LLMs : Overview, Methods, and Best Practices
+https://www.turing.com/resources/finetuning-large-language-models#b.-choosing-the-right-pre-trained-model
+
+Introducing Contextual Retrieval
+https://www.anthropic.com/news/contextual-retrieval
+

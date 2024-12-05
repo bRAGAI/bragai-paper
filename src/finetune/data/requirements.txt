@@ -1,0 +1,5 @@
+datasets
+nbformat
+pandas
+PyGithub
+python-dotenv
