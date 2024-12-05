@@ -12,3 +12,5 @@ Large Language Models (LLMs) have demonstrated significant capabilities in autom
 
 [See Final Paper Here](./bRAGAI_Final_Paper.pdf)
 
+**Video demo coming soon**
+
