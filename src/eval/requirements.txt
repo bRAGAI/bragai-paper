@@ -1,0 +1,24 @@
+# Core Libraries for Both RAG and Zero-Shot
+langchain
+openai
+tqdm
+
+# Hugging Face Libraries for LLMs
+transformers
+datasets
+
+# Text Processing
+nltk
+
+# System and Utilities
+pydantic
+typing-extensions
+
+# Vector Stores for RAG
+pinecone-client
+
+# Optional Optimization (if applicable)
+faiss-cpu
+
+# File Management for Dataset Handling
+python-dotenv

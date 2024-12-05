@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0 WANDB_PROJECT=bragai-finetuned python train.py \
+CUDA_VISIBLE_DEVICES=0 WANDB_PROJECT=codellama-bragai python train.py \
 --model_name_or_path "codellama/CodeLlama-7b-Instruct-hf" \
 --dataset_name "hababou/hug_stack" \
 --splits "train" \
@@ -20,7 +20,7 @@ CUDA_VISIBLE_DEVICES=0 WANDB_PROJECT=bragai-finetuned python train.py \
 --weight_decay 0.1 \
 --warmup_ratio 0.1 \
 --max_grad_norm 1.0 \
---output_dir "codellama-hugcoder" \
+--output_dir "codellama-bragai" \
 --per_device_train_batch_size 16 \
 --per_device_eval_batch_size 16 \
 --gradient_accumulation_steps 4 \
