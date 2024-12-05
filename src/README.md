@@ -19,8 +19,7 @@
     │   ├── prepare_dataset.py
     │   ├── push_to_hub.py
     │   └── requirements.txt
-    ├── inference
-    │   └── code_llama_fim_fine_tuning_inference_and_merging.ipynb
+    ├── inference/
     └── training
         ├── fim.py
         ├── requirements.txt
