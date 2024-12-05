@@ -1,6 +1,4 @@
-"""
-Courtesy: Sayak Paul and Chansung Park.
-"""
+# This code was adapted from LLM-Workshop (https://github.com/pacman100/LLM-Workshop/)
 
 import os
 import subprocess

@@ -1,10 +1,12 @@
+# This code was adapted from LLM-Workshop (https://github.com/pacman100/LLM-Workshop/)
+
 from huggingface_hub import snapshot_download
 from datasets import Dataset
 from tqdm import tqdm
 import pandas as pd
 import glob
 
-REPO_ID = "hababou/lc-codegen"
+REPO_ID = "hababou/hf-codegen"
 FEATHER_FORMAT = "ftr"
 
 if __name__ == "__main__":
@@ -24,4 +26,4 @@ if __name__ == "__main__":
     print(f"Final DF prepared containing {len(final_df)} rows.")
 
     dataset = Dataset.from_pandas(final_df)
-    dataset.push_to_hub("lc-codegen-v2")
+    dataset.push_to_hub("hf-codegen-v2")

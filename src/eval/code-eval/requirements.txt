@@ -1,0 +1,7 @@
+-e ./human-eval
+transformers
+torch
+accelerate
+sentencepiece
+einops
+tiktoken

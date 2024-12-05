@@ -1,3 +1,5 @@
+# This code was adapted from LLM-Workshop (https://github.com/pacman100/LLM-Workshop/)
+
 import os
 import pandas as pd
 from nbformat import reads, NO_CONVERT
@@ -8,8 +10,8 @@ from huggingface_hub import create_repo, upload_folder
 import tempfile
 import subprocess
 
-MIRROR_DIRECTORY = "lc_public_repos"
-DATASET_ID = "lc-codegen"
+MIRROR_DIRECTORY = "hf_public_repos"
+DATASET_ID = "hf-codegen"
 SERIALIZE_IN_CHUNKS = 10000
 FEATHER_FORMAT = "ftr"
 
