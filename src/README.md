@@ -5,24 +5,53 @@ This project explores the application of fine-tuned language models in Retrieval
 ## Key Features
 
 1. **Fine-Tuned Models for Retrieval-Augmented Generation**:
-   - The `hababou/codellama-bragai` fine-tuned model was specifically optimized for Retrieval-Augmented Generation tasks.
-   - The model evaluates hierarchical negative binomial models, retrieval strategies, and context-based completions in domains like programming and research.
+   - The `hababou/codellama-bragai` fine-tuned model was specifically optimized for RAG tasks.
+   - The model evaluates retrieval strategies and context-based completions in domains like programming and research.
 
 2. **Dataset Integration**:
    - The project uses a curated dataset (`hababou/hf-codegen-v2`) featuring real-world problems and solutions for fine-tuning and evaluation.
-   - The dataset `hababou/code-chat-assistant-v1`, a mix of LIMA and GUANACO with proper formatting, was utilized for training the RAG chat capabilities, ensuring readiness for interactive use cases.
-   - Test cases are designed to evaluate the system's ability to generate accurate responses for both retrieval-based and generative tasks.
+   - The dataset `hababou/code-chat-assistant-v1`, combining LIMA and GUANACO, was utilized for training RAG chat capabilities, ensuring readiness for interactive use cases.
+   - Non-code files were excluded during preprocessing to focus on programming-related content.
 
 3. **Evaluation Metrics**:
-   - Model performance is quantified using metrics like Pass@k and NDCG@10.
+   - Model performance is quantified using metrics like Pass@k, NDCG@10, and Recall@10.
    - Ground truth comparisons ensure the model maintains high relevance and accuracy in retrieval-augmented scenarios.
 
 4. **Test Case Coverage**:
-   - Includes 30 diverse scenarios, ranging from hierarchical modeling to code generation, ensuring broad applicability in various contexts.
+   - Includes 30 diverse scenarios, ranging from code generation to context-specific retrieval, ensuring broad applicability in various contexts.
+
+## Fine-Tuning Process
+
+### 1. **Parameter-Efficient Fine-Tuning**
+   - **Low-Rank Adaptation (LoRA):**
+     - LoRA decomposes weight update matrices into low-rank representations, enabling efficient fine-tuning without modifying the base model extensively.
+   - **Quantization-Aware LoRA (QLoRA):**
+     - Introduces 4-bit quantization to improve memory efficiency while preserving model quality.
+   - **Fill-In-The-Middle (FIM) Training Objective:**
+     - The FIM approach trains the model to predict missing segments within a given context, enhancing reasoning capabilities by leveraging bidirectional context.
+   - **Training Configuration:**
+     - Learning rate: `3 × 10^-4`
+     - LoRA rank: `r = 32`, scaling factor: `α = 64`
+     - Dropout: `0.1`
+     - Maximum sequence length: `2048`
+     - Hardware: NVIDIA A100 GPUs, 80GB VRAM
+
+### 2. **Dataset Preparation**
+   - The dataset for fine-tuning bRAG AI was curated from the top 25 repositories in the Hugging Face GitHub organization. These repositories contain high-quality code snippets, documentation, and issue discussions, providing a rich source of structured and unstructured knowledge for training.
+   - Non-code files, such as configuration files and unrelated documentation, were excluded to ensure domain relevance. Tokenization was performed using Byte-Pair Encoding (BPE), optimized for programming languages.
+   - The dataset, labeled `hababou/hf-codegen-v2` on Hugging Face, was structured for seamless integration with the fine-tuning process, including a 10% test split for performance evaluation.
+
+### 3. **Training Methodology**
+   - **Fill-In-The-Middle (FIM) Objective:**
+     - Inspired by "Efficient Training of Language Models to Fill in the Middle," the FIM training objective enhances the model's ability to predict missing segments using both preceding and succeeding context. A 50% FIM rate was adopted, balancing standard left-to-right modeling with gap-filling tasks.
+   - **Efficiency Metrics:**
+     - Training was monitored using Weights & Biases (W&B), tracking metrics like training loss, evaluation loss, and learning rate schedules to ensure convergence.
+   - **Hardware Setup:**
+     - Fine-tuning was conducted on NVIDIA A100 GPUs with 80GB VRAM, employing gradient accumulation for memory efficiency.
 
 ## Code Completion Evaluation: Python HumanEval Results
 
-To evaluate whether fine-tuning with QLoRA preserves the model’s foundational knowledge and avoids catastrophic forgetting, we ran the Python HumanEval benchmark on our fine-tuned bRAG AI model. This benchmark measures the functional correctness of generated Python programs, focusing on the Pass@1 metric, which evaluates the proportion of problems solved correctly on the first attempt.
+To evaluate the model's capabilities post-fine-tuning, the Python HumanEval benchmark was used:
 
 | Model                         | Pass@1 (%) |
 |-------------------------------|------------|
@@ -31,11 +60,18 @@ To evaluate whether fine-tuning with QLoRA preserves the model’s foundational 
 
 *Table 3: Python HumanEval Pass@1 Results for Base and Fine-Tuned Models*
 
-The results, as presented in Table 3, indicate that the fine-tuned model achieves a Pass@1 score of 33.95%, marginally lower than the base model’s 34.10%. This negligible difference demonstrates that fine-tuning with LoRA preserves the base model’s general-purpose coding capabilities while enabling domain-specific adaptations. The baseline model’s performance aligns with the reported results for Code Llama models in the original paper, further validating the foundational model’s robustness. This result underscores the efficacy of parameter-efficient fine-tuning in maintaining foundational knowledge.
+The negligible difference in scores demonstrates that fine-tuning preserves the foundational capabilities of the base model while adapting it for RAG tasks.
+
+## Retrieval-Augmented Inference
+
+The bRAG AI framework integrates a dynamic retrieval pipeline to fetch relevant external knowledge, such as:
+   - GitHub repositories
+   - Academic papers
+   - Multimedia transcripts
+
+The retrieved context is appended to the input, enabling the model to generate responses grounded in real-time information.
 
 ## Code Overview
-
-The project structure includes the following key components:
 
 ```
 .
@@ -44,81 +80,74 @@ The project structure includes the following key components:
 │   ├── code-eval
 │   │   ├── codellama-base-eval.py  # Evaluation script for base model
 │   │   ├── codellama-bragai-eval.py  # Evaluation script for fine-tuned model
-│   │   ├── humaneval/              # HumanEval benchmark integration
-│   │   └── requirements.txt        # Dependencies for code evaluation
-│   ├── rag.py                      # RAG evaluation script
-│   ├── requirements.txt            # Dependencies for evaluation scripts
-│   └── zeroshot.py                 # Zero-shot evaluation script
+│   ├── humaneval/              # HumanEval benchmark integration
+│   └── rag.py                  # Retrieval-augmented generation evaluation script
 ├── finetune
 │   ├── data
 │   │   ├── README.md               # Dataset preparation instructions
 │   │   ├── clone_gh_repos.py       # Script to clone GitHub repositories
 │   │   ├── prepare_dataset.py      # Script to prepare dataset for fine-tuning
 │   │   ├── push_to_hub.py          # Script to upload datasets to Hugging Face Hub
-│   │   └── requirements.txt        # Dependencies for dataset preparation
-│   ├── inference/                  # Inference-related scripts
 │   └── training
 │       ├── fim.py                  # Implements FIM (Fill-in-the-Middle) techniques
-│       ├── requirements.txt        # Dependencies for training
-│       ├── run_peft.sh             # Shell script for PEFT training
-│       └── train.py                # Fine-tuning script
+│       ├── train.py                # Fine-tuning script
 ```
 
 ## How to Run the Evaluation
 
-1. **Setup the Environment**:
+1. **Setup the Environment:**
    Install the dependencies for evaluation:
    ```bash
    pip install -r eval/requirements.txt
    ```
 
-2. **Run RAG Evaluation**:
+2. **Run RAG Evaluation:**
    Use the `rag.py` script to evaluate the fine-tuned model:
    ```bash
    python eval/rag.py
    ```
 
-3. **Run Code Evaluation**:
-   Evaluate both base and fine-tuned models using HumanEval benchmark:
+3. **Run Code Evaluation:**
+   Evaluate both base and fine-tuned models using the HumanEval benchmark:
    ```bash
    python eval/code-eval/codellama-base-eval.py
    python eval/code-eval/codellama-bragai-eval.py
    ```
 
-4. **Analyze the Results**:
+4. **Analyze the Results:**
    The scripts output the accuracy and relevance metrics for test cases, including Pass@1 and qualitative insights.
 
 ## Performance Highlights
 
-The project incorporates Retrieval-Augmented Generation into a hierarchical modeling pipeline, demonstrating:
+The project incorporates Retrieval-Augmented Generation into a dynamic workflow, demonstrating:
 
-1. **Improved Retrieval Accuracy**:
-   - The fine-tuned model shows high relevance in retrieving documents for hierarchical models.
+1. **Improved Retrieval Accuracy:**
+   - The fine-tuned model shows high relevance in retrieving documents for code-centric tasks.
 
-2. **Effective Code Completions**:
+2. **Effective Code Completions:**
    - Generates syntactically and semantically accurate Python code snippets.
 
-3. **Qualitative and Quantitative Insights**:
+3. **Qualitative and Quantitative Insights:**
    - Example outputs illustrate the effectiveness of the RAG pipeline in solving both general and domain-specific tasks.
 
 ## Research Contributions
 
 This project builds on state-of-the-art RAG techniques to:
    - Fine-tune causal language models for context-aware retrieval and generation.
-   - Develop a benchmark framework for hierarchical model evaluation.
-   - Explore the intersection of generative AI and statistical modeling.
+   - Develop a benchmark framework for evaluating retrieval-augmented models.
+   - Explore the intersection of generative AI and software engineering.
 
 For detailed results and experimental setups, refer to the accompanying research paper.
 
 ## Future Work
 
-1. **Integrating New Benchmarks**:
+1. **Integrating New Benchmarks:**
    - Expand to datasets like HumanEval and beyond for comprehensive evaluation.
 
-2. **Combining Retrieval Sources**:
+2. **Combining Retrieval Sources:**
    - Enhance the retrieval mechanism to combine diverse knowledge bases dynamically.
 
-3. **Scaling the RAG Workflow**:
+3. **Scaling the RAG Workflow:**
    - Explore multi-modal RAG for applications in fields like healthcare and education.
 
 ## References
