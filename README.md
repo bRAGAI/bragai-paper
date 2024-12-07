@@ -1,24 +1,30 @@
-# bRAG AI: Retrieval-Augmented Fine-Tuning for Code Language Models
+# bRAG AI: Pioneering Retrieval-Augmented Fine-Tuning for Code LLMs
 
 ### Overview
 
-**[bRAG AI](https://bragai.tech)** is an innovative Retrieval-Augmented Generation (RAG) framework designed to enhance code-centric language models through parameter-efficient fine-tuning and dynamic context retrieval. By leveraging advanced techniques like Low-Rank Adaptation (LoRA) and Fill-In-The-Middle (FIM) training, bRAG AI significantly improves domain-specific code generation and understanding.
+**[bRAG AI](https://bragai.tech)** redefines the boundaries of code-centric language models by blending cutting-edge Retrieval-Augmented Generation (RAG) techniques with parameter-efficient fine-tuning. Tailored for dynamic and evolving software ecosystems, bRAG AI leverages advanced strategies such as Low-Rank Adaptation (LoRA) and Fill-In-The-Middle (FIM) training to deliver unmatched domain-specific adaptability and precision.
 
 ## Video Demo
 
-[bRAG AI Final Video](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4)
+[Experience bRAG AI in Action](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4)
 
-### Key Features
-- **Parameter-Efficient Domain Adaptation:** Utilize LoRA and QLoRA for cost-effective model fine-tuning
-- **Dynamic Multi-Source Retrieval:** Integrate context from GitHub repositories, academic papers, and multimedia transcripts
-- **Enhanced Contextual Reasoning:** Improve code generation accuracy and domain adaptability
-- **Optimized for Software Engineering:** Specifically designed for evolving code ecosystems
+## Key Features
+
+- **Efficient Fine-Tuning:** Harness the power of LoRA and QLoRA to fine-tune models with minimal computational overhead.
+- **Dynamic Context Retrieval:** Seamlessly integrate knowledge from diverse sources like GitHub repositories, academic papers, and multimedia transcripts.
+- **Context-Aware Reasoning:** Achieve exceptional accuracy in code generation and domain-specific adaptability through real-time context enrichment.
+- **Engineered for Evolution:** Purpose-built to address the challenges of ever-changing codebases and frameworks.
 
 ## Installation
+
+Get started with bRAG AI in a few simple steps:
 
 ```bash
 # Clone the repository
 git clone https://github.com/bRAGAI/bragai
+
+# Navigate to the project directory
+cd bragai
 
 # Install dependencies
 pip install -r requirements.txt
@@ -47,30 +53,48 @@ pip install -r requirements.txt
 │   │   └── requirements.txt        # Dependencies for dataset preparation
 │   ├── inference/                  # Inference-related scripts
 │   └── training
-│       ├── fim.py                  # Implements FIM (Fill-in-the-Middle) techniques
+│       ├── fim.py                  # Implements FIM (Fill-in-The-Middle) techniques
 │       ├── requirements.txt        # Dependencies for training
 │       ├── run_peft.sh             # Shell script for PEFT training
 │       └── train.py                # Fine-tuning script
 ```
 
 ## Research Paper
-For a detailed techincal overview, please refer to our research paper:
 
-- **Title:** bRAGAI: Retrieval-Augmented Fine-Tuning for Code LLMs
+Explore the technical foundations of bRAG AI in our detailed research paper:
+
+- **Title:** bRAG AI: Retrieval-Augmented Fine-Tuning for Code LLMs
 - **Author:** Taha H. Ababou
 - **Affiliation:** Boston University
- 
-[Download Research Paper (PDF)](./docs/bRAGAI_Final_Paper.pdf)
 
-## Citation
+[Download the Research Paper (PDF)](./docs/bRAGAI_Final_Paper.pdf)
 
-If you use bRAGAI in your research, please cite:
+## How to Cite
+
+If bRAG AI contributes to your research, please use the following citation:
 
 ```bibtex
 @article{ababou2024bragAI,
-  title={BRAG AI: Retrieval-Augmented Fine-Tuning for Code LLMs},
+  title={bRAG AI: Retrieval-Augmented Fine-Tuning for Code LLMs},
   author={Ababou, Taha H.},
   year={2024},
   institution={Boston University}
 }
 ```
+
+## Future Directions
+
+bRAG AI represents a significant leap forward, but we’re just getting started. Upcoming enhancements include:
+
+- **Dynamic Retrieval Optimization:** Implement smarter, adaptive retrievers to further refine performance.
+- **Multi-Modal Applications:** Extend RAG capabilities to support fields like healthcare, finance, and education.
+- **Integrated Fine-Tuning:** Develop synchronized fine-tuning for both retrieval systems and LLMs to improve synergy.
+
+## Join Us
+
+We’re on a mission to revolutionize code LLMs. If you’re interested in contributing, collaborating, or simply learning more, we’d love to hear from you. Reach out via [our website](https://bragai.tech) or explore the repository today!
+
+---
+
+**bRAG AI: Empowering Developers, One Line of Code at a Time.**
+
