@@ -1,16 +1,83 @@
-# bRAG AI (*repo wip 🚧 🔨)
+# bRAG AI: Retrieval-Augmented Fine-Tuning for Code Language Models
 
-    REPOSITORY IS NOT FINALZED YET; PLEASE COME BACK LATER
-    
-    (PRESS THE 'WATCH' BUTTON ON TOP TO BE NOTIFIED ONCE THE REPOSITORY IS COMPLETED)
 
-<!-- _This repository is for reference only. Any use, reproduction, modification, or discussion of the contents is strictly prohibited without written permission._ -->
+### Overview
 
-## Abstract
+**[bRAG AI](https://bragai.tech)** is an innovative Retrieval-Augmented Generation (RAG) framework designed to enhance code-centric language models through parameter-efficient fine-tuning and dynamic context retrieval. By leveraging advanced techniques like Low-Rank Adaptation (LoRA) and Fill-In-The-Middle (FIM) training, bRAG AI significantly improves domain-specific code generation and understanding.
 
-Large Language Models (LLMs) have demonstrated significant capabilities in automating tasks such as code generation, documentation, and completion. However, their static pre-training paradigm limits their adaptability to domain-specific contexts and dynamic, evolving datasets. In this work, we present bRAG AI, a Retrieval-Augmented Generation (RAG) framework fine-tuned using parameter- efficient methods for domain-specific applications. Building upon Code Llama, we employed Low-Rank Adaptation (LoRA) and Quantization-aware LoRA (QLoRA) techniques to fine-tune the model on a curated dataset comprising the top 25 repos- itories from Hugging Face’s GitHub organization. These repositories provided a rich source of structured and unstructured code-based knowledge. By integrating a RAG pipeline, we enable real-time semantic retrieval from multi-format data sources, such as academic papers, GitHub repositories, and multimedia transcripts. Our results indicate that bRAG AI outperforms baseline models in tasks requiring contextual understanding, achieving significant improvements in retrieval accuracy and domain-specific adaptability while maintaining computational efficiency. The proposed framework highlights the potential of combining efficient fine-tuning techniques with dynamic retrieval to create robust, scalable LLM systems
+## Video Demo
 
-[See Final Paper Here](./bRAGAI_Final_Paper.pdf)
+<video width="800" controls>
+  <source src="assets/bRAGAI_Final_Video.mov" type="video/quicktime">
+  Your browser does not support the video tag.
+</video>
 
-**Video demo coming soon**
+## Key Features
+- **Parameter-Efficient Domain Adaptation:** Utilize LoRA and QLoRA for cost-effective model fine-tuning
+- **Dynamic Multi-Source Retrieval:** Integrate context from GitHub repositories, academic papers, and multimedia transcripts
+- **Enhanced Contextual Reasoning:** Improve code generation accuracy and domain adaptability
+- **Optimized for Software Engineering:** Specifically designed for evolving code ecosystems
 
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/bRAGAI/bragai
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## Project Structure
+
+```bash
+.
+└── src                                                   
+    ├── README.md                                         
+    ├── eval                                              
+    │   ├── code-eval                                     
+    │   │   ├── codellama-base-eval.py                    
+    │   │   ├── codellama-bragai-eval.py                  
+    │   │   ├── humaneval/                                
+    │   │   └── requirements.txt                          
+    │   ├── rag.py                                        
+    │   ├── requirements.txt                              
+    │   └── zeroshot.py                                   
+    └── finetune                                          
+        ├── data                                          
+        │   ├── README.md                                 
+        │   ├── clone_gh_repos.py                         
+        │   ├── prepare_dataset.py                        
+        │   ├── push_to_hub.py                            
+        │   └── requirements.txt                          
+        ├── inference                                     
+        └── training                                      
+            ├── fim.py                                    
+            ├── requirements.txt                          
+            ├── run_peft.sh                               
+            └── train.py                                  
+
+13 directories, 42 files
+```
+
+## Research Paper
+For a detailed techincal overview, please refer to our research paper:
+
+- **Title:** bRAGAI: Retrieval-Augmented Fine-Tuning for Code LLMs
+- **Author:** Taha H. Ababou
+- **Affiliation:** Boston University
+ 
+[Download Research Paper (PDF)](./bRAGAI_Final_Paper.pdf)
+
+## Citation
+
+If you use bRAGAI in your research, please cite:
+
+```bibtex
+@article{ababou2024bragAI,
+  title={BRAG AI: Retrieval-Augmented Fine-Tuning for Code LLMs},
+  author={Ababou, Taha H.},
+  year={2024},
+  institution={Boston University}
+}
+```

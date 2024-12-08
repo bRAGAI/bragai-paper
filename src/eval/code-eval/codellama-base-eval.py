@@ -9,11 +9,11 @@ from transformers import (
 from core import filter_code, run_eval, fix_indents
 import os
 import torch
+from datasets import load_dataset
 
 # TODO: move to python-dotenv
 # add hugging face access token here
 TOKEN = ""
-
 
 @torch.inference_mode()
 def generate_batch_completion(
@@ -41,8 +41,10 @@ def generate_batch_completion(
 
     return [filter_code(fix_indents(completion)) for completion in batch_completions]
 
-
 if __name__ == "__main__":
+    # Load test cases from Hugging Face dataset
+    dataset = load_dataset("hababou/code-chat-assistant-v1", split="test")
+
     # adjust for n = 10 etc
     num_samples_per_task = 10
     out_path = "results/codellama/eval.jsonl"
@@ -68,4 +70,5 @@ if __name__ == "__main__":
         out_path,
         generate_batch_completion,
         True,
+        dataset
     )
