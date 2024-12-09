@@ -1,6 +1,5 @@
 # bRAG AI: Retrieval-Augmented Fine-Tuning for Code Language Models
 
-
 ### Overview
 
 **[bRAG AI](https://bragai.tech)** is an innovative Retrieval-Augmented Generation (RAG) framework designed to enhance code-centric language models through parameter-efficient fine-tuning and dynamic context retrieval. By leveraging advanced techniques like Low-Rank Adaptation (LoRA) and Fill-In-The-Middle (FIM) training, bRAG AI significantly improves domain-specific code generation and understanding.
@@ -12,7 +11,7 @@
   Your browser does not support the video tag.
 </video>
 
-## Key Features
+### Key Features
 - **Parameter-Efficient Domain Adaptation:** Utilize LoRA and QLoRA for cost-effective model fine-tuning
 - **Dynamic Multi-Source Retrieval:** Integrate context from GitHub repositories, academic papers, and multimedia transcripts
 - **Enhanced Contextual Reasoning:** Improve code generation accuracy and domain adaptability
@@ -30,34 +29,31 @@ pip install -r requirements.txt
 
 ## Project Structure
 
-```bash
+```
 .
-└── src                                                   
-    ├── README.md                                         
-    ├── eval                                              
-    │   ├── code-eval                                     
-    │   │   ├── codellama-base-eval.py                    
-    │   │   ├── codellama-bragai-eval.py                  
-    │   │   ├── humaneval/                                
-    │   │   └── requirements.txt                          
-    │   ├── rag.py                                        
-    │   ├── requirements.txt                              
-    │   └── zeroshot.py                                   
-    └── finetune                                          
-        ├── data                                          
-        │   ├── README.md                                 
-        │   ├── clone_gh_repos.py                         
-        │   ├── prepare_dataset.py                        
-        │   ├── push_to_hub.py                            
-        │   └── requirements.txt                          
-        ├── inference                                     
-        └── training                                      
-            ├── fim.py                                    
-            ├── requirements.txt                          
-            ├── run_peft.sh                               
-            └── train.py                                  
-
-13 directories, 42 files
+├── README.md                   # Documentation
+├── eval
+│   ├── code-eval
+│   │   ├── codellama-base-eval.py  # Evaluation script for base model
+│   │   ├── codellama-bragai-eval.py  # Evaluation script for fine-tuned model
+│   │   ├── humaneval/              # HumanEval benchmark integration
+│   │   └── requirements.txt        # Dependencies for code evaluation
+│   ├── rag.py                      # RAG evaluation script
+│   ├── requirements.txt            # Dependencies for evaluation scripts
+│   └── zeroshot.py                 # Zero-shot evaluation script
+├── finetune
+│   ├── data
+│   │   ├── README.md               # Dataset preparation instructions
+│   │   ├── clone_gh_repos.py       # Script to clone GitHub repositories
+│   │   ├── prepare_dataset.py      # Script to prepare dataset for fine-tuning
+│   │   ├── push_to_hub.py          # Script to upload datasets to Hugging Face Hub
+│   │   └── requirements.txt        # Dependencies for dataset preparation
+│   ├── inference/                  # Inference-related scripts
+│   └── training
+│       ├── fim.py                  # Implements FIM (Fill-in-the-Middle) techniques
+│       ├── requirements.txt        # Dependencies for training
+│       ├── run_peft.sh             # Shell script for PEFT training
+│       └── train.py                # Fine-tuning script
 ```
 
 ## Research Paper
