@@ -6,7 +6,9 @@
 
 ## Video Demo
 
-[Experience bRAG AI in Action](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4)
+[(Shortened - 9 minutes) Technical Video on bRAGAI [edited]](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+%5Bedited%5D+Final+Video.m4v)
+
+[(Full 17 minutes) Techincal Video on bRAGAI [uncut]](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4)
 
 ## Key Features
 
