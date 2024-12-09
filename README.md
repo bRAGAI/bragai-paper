@@ -60,7 +60,7 @@ For a detailed techincal overview, please refer to our research paper:
 - **Author:** Taha H. Ababou
 - **Affiliation:** Boston University
  
-[Download Research Paper (PDF)](./bRAGAI_Final_Paper.pdf)
+[Download Research Paper (PDF)](./docs/bRAGAI_Final_Paper.pdf)
 
 ## Citation
 
