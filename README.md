@@ -6,10 +6,7 @@
 
 ## Video Demo
 
-<video width="800" controls>
-  <source src="https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4" type="video/mp4">
-  Your browser does not support the video tag. [Watch the Demo Video](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4)
-</video>
+[bRAG AI Final Video](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4)
 
 ### Key Features
 - **Parameter-Efficient Domain Adaptation:** Utilize LoRA and QLoRA for cost-effective model fine-tuning
