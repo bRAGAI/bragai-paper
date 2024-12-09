@@ -7,7 +7,7 @@
 ## Video Demo
 
 <video width="800" controls>
-  <source src="assets/bRAGAI_Final_Video.mov" type="video/quicktime">
+  <source src="./assets/bRAGAI_Final_Video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
