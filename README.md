@@ -1,14 +1,24 @@
 # bRAG AI: Pioneering Retrieval-Augmented Fine-Tuning for Code LLMs
 
-### Overview
+## Overview
 
 **[bRAG AI](https://bragai.tech)** redefines the boundaries of code-centric language models by blending cutting-edge Retrieval-Augmented Generation (RAG) techniques with parameter-efficient fine-tuning. Tailored for dynamic and evolving software ecosystems, bRAG AI leverages advanced strategies such as Low-Rank Adaptation (LoRA) and Fill-In-The-Middle (FIM) training to deliver unmatched domain-specific adaptability and precision.
 
-## Video Demo
+### Video Demo
 
 [(Shortened - 9 minutes) Technical Video on bRAGAI [edited]](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+%5Bedited%5D+Final+Video.m4v)
 
 [(Full 17 minutes) Techincal Video on bRAGAI [uncut]](https://bragai.s3.us-east-1.amazonaws.com/bRAGAI+Final+Video.mp4)
+
+### Research Paper
+
+Explore the technical foundations of bRAG AI in our detailed research paper:
+
+- **Title:** bRAG AI: Retrieval-Augmented Fine-Tuning for Code LLMs
+- **Author:** Taha H. Ababou
+- **Affiliation:** Boston University
+
+[Download the Research Paper (PDF)](./docs/bRAGAI_Final_Paper.pdf)
 
 ## Key Features
 
@@ -60,16 +70,6 @@ pip install -r requirements.txt
 │       ├── run_peft.sh             # Shell script for PEFT training
 │       └── train.py                # Fine-tuning script
 ```
-
-## Research Paper
-
-Explore the technical foundations of bRAG AI in our detailed research paper:
-
-- **Title:** bRAG AI: Retrieval-Augmented Fine-Tuning for Code LLMs
-- **Author:** Taha H. Ababou
-- **Affiliation:** Boston University
-
-[Download the Research Paper (PDF)](./docs/bRAGAI_Final_Paper.pdf)
 
 ## How to Cite
 
