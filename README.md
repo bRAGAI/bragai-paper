@@ -88,13 +88,13 @@ If bRAG AI contributes to your research, please use the following citation:
 
 bRAG AI represents a significant leap forward, but we’re just getting started. Upcoming enhancements include:
 
-- **Dynamic Retrieval Optimization:** Implement smarter, adaptive retrievers to further refine performance.
-- **Multi-Modal Applications:** Extend RAG capabilities to support fields like healthcare, finance, and education.
-- **Integrated Fine-Tuning:** Develop synchronized fine-tuning for both retrieval systems and LLMs to improve synergy.
+- **Dynamic Retrieval Optimization:** Implement smarter, adaptive retrievers to refine performance further.
+- **Multi-Modal Applications:** Extend RAG capabilities to support healthcare, finance, and education.
+- **Integrated Fine-Tuning:** Develop synchronized fine-tuning for retrieval systems and LLMs to improve synergy.
 
 ## Join Us
 
-We’re on a mission to revolutionize code LLMs. If you’re interested in contributing, collaborating, or simply learning more, we’d love to hear from you. Reach out via [our website](https://bragai.tech) or explore the repository today!
+We’re on a mission to revolutionize code LLMs. We'd love to hear from you if you’re interested in contributing, collaborating, or simply learning more. Reach out via [our website](https://bragai.tech) or email me directly at taha@bragai.tech!
 
 ---
 
