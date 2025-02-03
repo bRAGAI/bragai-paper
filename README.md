@@ -2,7 +2,7 @@
 
 ## Overview
 
-**[bRAG AI](https://bragai.tech)** redefines the boundaries of code-centric language models by blending cutting-edge Retrieval-Augmented Generation (RAG) techniques with parameter-efficient fine-tuning. Tailored for dynamic and evolving software ecosystems, bRAG AI leverages advanced strategies such as Low-Rank Adaptation (LoRA) and Fill-In-The-Middle (FIM) training to deliver unmatched domain-specific adaptability and precision.
+**[bRAG AI](https://bragai.dev)** redefines the boundaries of code-centric language models by blending cutting-edge Retrieval-Augmented Generation (RAG) techniques with parameter-efficient fine-tuning. Tailored for dynamic and evolving software ecosystems, bRAG AI leverages advanced strategies such as Low-Rank Adaptation (LoRA) and Fill-In-The-Middle (FIM) training to deliver unmatched domain-specific adaptability and precision.
 
 ### Video Demo
 
